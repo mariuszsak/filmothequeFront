@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from '../../authentication/token-storage.service';
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private token: TokenStorageService) { }
 
   ngOnInit() {
   }
+
+    logout() {
+        this.token.signOut();
+        window.location.reload();
+    }
 
 }

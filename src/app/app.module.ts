@@ -12,6 +12,7 @@ import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MenuComponent } from './components/menu/menu.component';
+import {AuthInterceptor} from './authentication/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { MenuComponent } from './components/menu/menu.component';
     FormsModule,
     routing
   ],
-  providers: [MovieService],
+  providers: [MovieService, AuthInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule {
