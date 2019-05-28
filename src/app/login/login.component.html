@@ -1,6 +1,13 @@
 <div *ngIf="isLoggedIn; else loggedOut">
-    <app-home></app-home>
+    Logged in as {{roles}}.
+    <app-navigation></app-navigation>
+
 </div>
+
+<!--<ng-template #isLoggedIn>-->
+    <!--<app-home></app-home>-->
+
+<!--</ng-template>-->
 
 <ng-template #loggedOut>
     <div class="row col-sm-6" style="max-width:350px;">

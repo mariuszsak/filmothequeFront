@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {TableComponent} from './components/table/table.component';
 import {MatTableModule} from '@angular/material';
 import {MovieService} from './services/movie.service';
@@ -30,7 +30,13 @@ import {AuthInterceptor} from './authentication/auth-interceptor';
     FormsModule,
     routing
   ],
-  providers: [MovieService, AuthInterceptor],
+  providers: [MovieService,
+      {
+          provide: HTTP_INTERCEPTORS,
+          useClass: AuthInterceptor,
+          multi: true
+      }
+      ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
