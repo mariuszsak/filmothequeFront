@@ -1,14 +1,14 @@
 import {LoginComponent} from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
 import {TableComponent} from './components/table/table.component';
-import {HomeComponent} from './components/home/home.component';
+import {AddItemComponent} from './components/add-item/add-item.component';
 
 
 const appRoutes: Routes = [
   { path: 'all', component: TableComponent },
-  { path: 'home', component: HomeComponent },
+  { path: 'add', component: AddItemComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LoginComponent },
+  { path: 'logout', redirectTo: 'login'},
   { path: '**', redirectTo: 'login' }
 ];
 export const routing = RouterModule.forRoot(appRoutes);

@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
-import {ActivatedRoute, Router} from '@angular/router';
-import {HttpClient} from '@angular/common/http';
 import {AuthLoginInfo} from '../authentication/login-info';
 import {TokenStorageService} from '../authentication/token-storage.service';
 import {AuthService} from '../authentication/auth.service';
@@ -18,6 +15,7 @@ export class LoginComponent implements OnInit {
     errorMessage = '';
     roles: string[] = [];
     private loginInfo: AuthLoginInfo;
+    router: string;
 
     constructor(private authService: AuthService, private tokenStorage: TokenStorageService) {
     }
@@ -45,7 +43,7 @@ export class LoginComponent implements OnInit {
                 this.isLoginFailed = false;
                 this.isLoggedIn = true;
                 // this.roles = this.tokenStorage.getAuthorities();
-                this.reloadPage();
+                // this.reloadPage();
             },
             error => {
                 console.log(error);
@@ -55,7 +53,7 @@ export class LoginComponent implements OnInit {
         );
     }
 
-    reloadPage() {
-        window.location.reload();
-    }
+    // reloadPage() {
+    //     window.location.reload();
+    // }
 }
