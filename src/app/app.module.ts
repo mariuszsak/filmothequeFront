@@ -13,6 +13,7 @@ import {AuthInterceptor} from './authentication/auth-interceptor';
 import { MenuComponent } from './components/menu/menu.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { BaseComponent } from './components/base/base.component';
+import { GbyeComponent } from './components/gbye/gbye.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BaseComponent } from './components/base/base.component';
     LoginComponent,
     MenuComponent,
     AddItemComponent,
-    BaseComponent
+    BaseComponent,
+    GbyeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../authentication/token-storage.service';
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+    selector: 'app-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private token: TokenStorageService) { }
+    constructor(private token: TokenStorageService) {
+    }
 
-  ngOnInit() {
-  }
-  logout() {
-    this.token.signOut();
-    window.location.reload();
-  }
+    ngOnInit() {
+    }
+
+    logout() {
+        this.token.signOut();
+        window.sessionStorage.clear();
+        window.location.replace('gbye');
+    }
 }

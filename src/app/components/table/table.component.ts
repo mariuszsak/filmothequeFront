@@ -29,13 +29,11 @@ export class TableComponent implements OnInit {
         }
     }
 
-    logout() {
-        this.token.signOut();
-        window.sessionStorage.clear();
-        console.log(event);
-        window.location.reload();
-        console.log(event);
-    }
+    // logout() {
+    //     this.token.signOut();
+    //     window.sessionStorage.clear();
+    //     window.location.replace('login');
+    // }
 }
 
 export class MovieDataSource extends DataSource<any> {

@@ -31,4 +31,10 @@ export class AddItemComponent implements OnInit {
             }
         );
     }
+
+    // logout() {
+    //     this.token.signOut();
+    //     window.sessionStorage.clear();
+    //     window.location.replace('login');
+    // }
 }
