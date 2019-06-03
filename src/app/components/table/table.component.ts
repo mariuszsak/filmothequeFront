@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {DataSource} from '@angular/cdk/collections';
-import {MovieService} from '../../services/movie.service';
+import {MovieService} from '../../../services/movie.service';
 import {Observable} from 'rxjs';
-import {Movie} from '../../model/movie.model';
+import {Movie} from '../../../model/movie.model';
 
 @Component({
   selector: 'app-table',
