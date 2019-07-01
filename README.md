@@ -12,6 +12,16 @@ Currently in alpha stage.
 - SASS
 - JWT Authentication
 
+### Todo
+
+- Add movie form
+- Search movie form
+- Search movie in OMDB
+- User settings (change password, personal OMDB apikey binding)
+- Register form
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
 
 ## Development server
