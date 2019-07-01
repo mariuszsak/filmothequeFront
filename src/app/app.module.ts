@@ -14,6 +14,8 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AddItemComponent } from './components/add-item/add-item.component';
 import { BaseComponent } from './components/base/base.component';
 import { GbyeComponent } from './components/gbye/gbye.component';
+import { SearchItemComponent } from './components/search-item/search-item.component';
+import { SearchExtComponent } from './components/search-ext/search-ext.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { GbyeComponent } from './components/gbye/gbye.component';
     MenuComponent,
     AddItemComponent,
     BaseComponent,
-    GbyeComponent
+    GbyeComponent,
+    SearchItemComponent,
+    SearchExtComponent
   ],
   imports: [
     BrowserModule,

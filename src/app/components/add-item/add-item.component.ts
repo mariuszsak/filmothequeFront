@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {TokenStorageService} from '../../authentication/token-storage.service';
+import {FormControl} from '@angular/forms';
 
 @Component({
     selector: 'app-add-item',
@@ -31,6 +32,9 @@ export class AddItemComponent implements OnInit {
             }
         );
     }
+
+
+
 
     // logout() {
     //     this.token.signOut();
