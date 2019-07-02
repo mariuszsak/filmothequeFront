@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TokenStorageService} from '../../authentication/token-storage.service';
 
 @Component({
   selector: 'app-search-ext',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-ext.component.css']
 })
 export class SearchExtComponent implements OnInit {
+  isLoggedIn = false;
 
-  constructor() { }
+  constructor(private token: TokenStorageService) { }
 
   ngOnInit() {
+    if (this.token.getToken()) {
+      this.isLoggedIn = true;
+    }
   }
 
 }

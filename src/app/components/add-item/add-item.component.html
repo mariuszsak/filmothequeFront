@@ -6,31 +6,46 @@
                 <app-menu></app-menu>
             </div>
             <div class="rightpanel">
-                <form>
-                    <div class="form-group">
-                        <label>Title:</label>
-                        <input type="text" class="form-control" placeholder="Enter movie title"
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <label>Year:</label>
-                        <input type="text" class="form-control"placeholder="Enter movie year"
-                               required>
-                    </div>
-                    <div>
-                        <label>Released:</label>
-                        <input type="text" class="form-control"placeholder="Enter movie release date"
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <label>Genre:</label>
-                        <input type="text" class="form-control"placeholder="Enter movie genre"
-                               required>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit">Submit</button>
-                    </div>
-                </form>
+                <div><h3>Add movie to your database:</h3></div>
+                <div>
+                    <form #templateForm="ngForm" (ngSubmit)="onSubmit(templateForm.value)">
+                        <div class="form-group">
+                            <label>Title:</label>
+                            <input type="text" class="form-control" placeholder="Enter movie title" for="Title"
+                                   [(ngModel)]="formItem.Title"
+                                   name="Title"
+                                   #Title="ngModel"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label>Year:</label>
+                            <input type="text" class="form-control" placeholder="Enter movie year" for="Year"
+                                   [(ngModel)]="formItem.Year"
+                                   name="Year"
+                                   #Year="ngModel"
+                                   required>
+                        </div>
+                        <div>
+                            <label>Released:</label>
+                            <input type="text" class="form-control" placeholder="Enter movie release date" for="Release"
+                                   [(ngModel)]="formItem.Release"
+                                   name="Release"
+                                   #Release="ngModel"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <label>Genre:</label>
+                            <input type="text" class="form-control" placeholder="Enter movie genre" for="Genre"
+                                   [(ngModel)]="formItem.Genre"
+                                   name="Genre"
+                                   #Genre="ngModel"
+                                   required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

@@ -1,3 +1,42 @@
-<p>
-  search-ext works!
-</p>
+<div *ngIf="isLoggedIn">
+
+    <div class="container">
+        <div class="wrapper">
+            <div class="leftpanel">
+                <app-menu></app-menu>
+            </div>
+            <div class="rightpanel">
+                <div><h3>Search OMDB for movies:</h3></div>
+                <div>
+                    <form>
+                        <div class="form-group">
+                            <label>Title:</label>
+                            <input type="text" class="form-control" placeholder="Enter movie title"
+                                   required>
+                        </div>
+<!--                        <div class="form-group">-->
+<!--                            <label>Year:</label>-->
+<!--                            <input type="text" class="form-control" placeholder="Enter movie Year"-->
+<!--                                   required>-->
+<!--                        </div>-->
+<!--                        <div>-->
+<!--                            <label>Released:</label>-->
+<!--                            <input type="text" class="form-control" placeholder="Enter movie Release date"-->
+<!--                                   required>-->
+<!--                        </div>-->
+<!--                        <div class="form-group">-->
+<!--                            <label>Genre:</label>-->
+<!--                            <input type="text" class="form-control" placeholder="Enter movie Genre"-->
+<!--                                   required>-->
+<!--                        </div>-->
+                        <div class="form-group">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--<p><a href="/logout" (click)="logout()">logout</a></p>-->
+<!--Go from add item to <a href="/login">Login page</a>-->
