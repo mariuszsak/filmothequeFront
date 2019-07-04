@@ -14,7 +14,7 @@ export class AddItemComponent implements OnInit {
 
     public url = 'http://localhost:8080/add';
     isLoggedIn = false;
-    router: string;
+    // router: string;
 
     // Title = '';
     // Year = '';
@@ -28,8 +28,8 @@ export class AddItemComponent implements OnInit {
         Genre: ''
     };
 
-    constructor(private http: HttpClient, private token: TokenStorageService, private _router: Router) {
-        this.router = _router.url;
+    constructor(private http: HttpClient, private token: TokenStorageService, private router: Router) {
+        // this.router = router.url;
     }
 
     ngOnInit() {
@@ -54,7 +54,8 @@ export class AddItemComponent implements OnInit {
     // }
     onSubmit(form) {
         console.log(form);
-        return this.http.post<Movie[]>('http://localhost:8080/save', form).subscribe();
+        this.http.post<Movie[]>('http://localhost:8080/save', form).subscribe();
+        this.router.navigate(['all']);
 
         // http://localhost:8080/save
         // console.log('form values ', form);
