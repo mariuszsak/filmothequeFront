@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {TokenStorageService} from '../../authentication/token-storage.service';
 import {FormControl} from '@angular/forms';
 import {Movie} from '../../model/movie.model';
+import {MovieService} from '../../services/movie.service';
 
 @Component({
     selector: 'app-add-item',
@@ -14,12 +15,6 @@ export class AddItemComponent implements OnInit {
 
     public url = 'http://localhost:8080/add';
     isLoggedIn = false;
-    // router: string;
-
-    // Title = '';
-    // Year = '';
-    // Release = '';
-    // Genre = '';
 
     formItem = {
         Title: '',
@@ -29,7 +24,7 @@ export class AddItemComponent implements OnInit {
     };
 
     constructor(private http: HttpClient, private token: TokenStorageService, private router: Router) {
-        // this.router = router.url;
+
     }
 
     ngOnInit() {
@@ -46,19 +41,8 @@ export class AddItemComponent implements OnInit {
         );
     }
 
-
-    // logout() {
-    //     this.token.signOut();
-    //     window.sessionStorage.clear();
-    //     window.location.replace('login');
-    // }
     onSubmit(form) {
-        console.log(form);
         this.http.post<Movie[]>('http://localhost:8080/save', form).subscribe();
-        this.router.navigate(['all']);
-
-        // http://localhost:8080/save
-        // console.log('form values ', form);
-
+        this.router.navigate(['addSuccess']);
     }
 }
