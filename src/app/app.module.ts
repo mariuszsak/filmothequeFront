@@ -16,6 +16,7 @@ import { BaseComponent } from './components/base/base.component';
 import { GbyeComponent } from './components/gbye/gbye.component';
 import { SearchItemComponent } from './components/search-item/search-item.component';
 import { SearchExtComponent } from './components/search-ext/search-ext.component';
+import { AddItemResultComponent } from './components/add-item-result/add-item-result.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { SearchExtComponent } from './components/search-ext/search-ext.component
     BaseComponent,
     GbyeComponent,
     SearchItemComponent,
-    SearchExtComponent
+    SearchExtComponent,
+    AddItemResultComponent
   ],
   imports: [
     BrowserModule,
