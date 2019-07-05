@@ -13,12 +13,12 @@ Currently in alpha stage.
 - JWT Authentication
 
 ### Todo
-
-- Add movie form (done) with some basic form validation
-- Search movie form (done, but success/error handler not implemented at this moment)
+- All movie should be paginated
+- Add movie form (done) with some basic form validation and should return summary view after success
+- Search movie form (done, it works, but success/error handler not implemented at this moment due to lack of skill in angular :) )
 - Search movie in OMDB (not implemented yet)
-- User settings (change password, personal OMDB apikey binding)
-- Register form
+- User settings (change password, personal OMDB apikey binding, not implemented yet)
+- Register form (not implemented yet)
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
