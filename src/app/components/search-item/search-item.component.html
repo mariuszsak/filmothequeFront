@@ -8,27 +8,30 @@
       <div class="rightpanel">
         <div><h3>Search within your movies:</h3></div>
         <div>
-        <form>
+        <form (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label>Title:</label>
-            <input type="text" class="form-control" placeholder="Enter movie title"
+            <input type="text" class="form-control" placeholder="Enter movie title" for="Title"
+                   [(ngModel)]="formItem.Title"
+                   name="Title"
+                   #Title="ngModel"
                    required>
           </div>
-          <div class="form-group">
-            <label>Year:</label>
-            <input type="text" class="form-control"placeholder="Enter movie year"
-                   required>
-          </div>
-          <div>
-            <label>Released:</label>
-            <input type="text" class="form-control"placeholder="Enter movie release date"
-                   required>
-          </div>
-          <div class="form-group">
-            <label>Genre:</label>
-            <input type="text" class="form-control"placeholder="Enter movie genre"
-                   required>
-          </div>
+<!--          <div class="form-group">-->
+<!--            <label>Year:</label>-->
+<!--            <input type="text" class="form-control"placeholder="Enter movie year"-->
+<!--                   required>-->
+<!--          </div>-->
+<!--          <div>-->
+<!--            <label>Released:</label>-->
+<!--            <input type="text" class="form-control"placeholder="Enter movie release date"-->
+<!--                   required>-->
+<!--          </div>-->
+<!--          <div class="form-group">-->
+<!--            <label>Genre:</label>-->
+<!--            <input type="text" class="form-control"placeholder="Enter movie genre"-->
+<!--                   required>-->
+<!--          </div>-->
           <div class="form-group">
             <button type="submit">Submit</button>
           </div>

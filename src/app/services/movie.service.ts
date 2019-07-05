@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {Movie} from '../model/movie.model';
 
 @Injectable({
@@ -15,5 +15,9 @@ export class MovieService {
 
     getMovie(): Observable<Movie[]> {
         return this.http.get<Movie[]>(this.serviceUrl);
+    }
+
+    getFind(title: string) {
+        return this.http.get<Movie[]>('http://localhost:8080/find/' + title).subscribe();
     }
 }
