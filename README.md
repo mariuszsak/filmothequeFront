@@ -14,12 +14,11 @@ Currently in alpha stage.
 
 ### Todo
 
-- Add movie form
-- Search movie form
-- Search movie in OMDB
+- Add movie form (done) with some basic form validation
+- Search movie form (done, but success/error handler not implemented at this moment)
+- Search movie in OMDB (not implemented yet)
 - User settings (change password, personal OMDB apikey binding)
 - Register form
-
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.2.
