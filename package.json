@@ -26,6 +26,7 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.9",
     "jquery": "^3.4.1",
+    "ngx-webstorage-service": "^4.0.1",
     "npm": "^6.9.0",
     "rxjs": "6.5.2",
     "tslib": "^1.9.0",

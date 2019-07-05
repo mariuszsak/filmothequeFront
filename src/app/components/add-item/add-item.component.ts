@@ -5,6 +5,7 @@ import {TokenStorageService} from '../../authentication/token-storage.service';
 import {FormControl} from '@angular/forms';
 import {Movie} from '../../model/movie.model';
 import {MovieService} from '../../services/movie.service';
+import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
     selector: 'app-add-item',
@@ -23,7 +24,7 @@ export class AddItemComponent implements OnInit {
         Genre: ''
     };
 
-    constructor(private http: HttpClient, private token: TokenStorageService, private router: Router) {
+    constructor(private http: HttpClient, private token: TokenStorageService, private router: Router, private ls: LocalStorageService) {
 
     }
 
@@ -42,6 +43,8 @@ export class AddItemComponent implements OnInit {
     }
 
     onSubmit(form) {
+        console.log('xxx');
+        console.log(localStorage.getItem('testkey'));
         this.http.post<Movie[]>('http://localhost:8080/save', form).subscribe();
         this.router.navigate(['addSuccess']);
     }

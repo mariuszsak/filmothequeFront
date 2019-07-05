@@ -3,6 +3,8 @@ import {TokenStorageService} from '../../authentication/token-storage.service';
 import {Movie} from '../../model/movie.model';
 import {HttpClient} from '@angular/common/http';
 import {MovieService} from '../../services/movie.service';
+import {Router} from '@angular/router';
+import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
     selector: 'app-search-item',
@@ -16,7 +18,10 @@ export class SearchItemComponent implements OnInit {
         Title: '',
     };
 
-    constructor(private token: TokenStorageService, private movieService: MovieService) {
+    constructor(private token: TokenStorageService,
+                private movieService: MovieService,
+                private router: Router,
+                private ls: LocalStorageService) {
     }
 
     ngOnInit() {
@@ -28,5 +33,7 @@ export class SearchItemComponent implements OnInit {
     onSubmit() {
         const title = this.formItem.Title;
         this.movieService.getFind(title);
+        this.ls.storeOnLocalStorage('Title', title);
+        this.router.navigate(['searchSuccess']);
     }
 }
