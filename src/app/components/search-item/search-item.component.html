@@ -8,15 +8,22 @@
       <div class="rightpanel">
         <div><h3>Search within your movies:</h3></div>
         <div>
-        <form (ngSubmit)="onSubmit()">
-          <div class="form-group">
+
+          <form #form="ngForm" (ngSubmit)="searchMovie(form.value)">
             <label>Title:</label>
-            <input type="text" class="form-control" placeholder="Enter movie title" for="Title"
-                   [(ngModel)]="formItem.Title"
-                   name="Title"
-                   #Title="ngModel"
-                   required>
-          </div>
+            <input type="text" name="title" [ngModel]="anyMovie.title">
+            <button type="submit">Submit</button>
+          </form>
+
+
+<!--        <form  #form="ngForm" (ngSubmit)="searchMovie(form.value)">-->
+<!--          <div class="form-group">-->
+<!--            <label>Title:</label>-->
+<!--            <input type="text" class="form-control" placeholder="Enter movie title" for="title"-->
+<!--                   [ngModel]="anyMovie.title"-->
+<!--                   name="title"-->
+<!--                   required>-->
+<!--          </div>-->
 <!--          <div class="form-group">-->
 <!--            <label>Year:</label>-->
 <!--            <input type="text" class="form-control"placeholder="Enter movie year"-->
@@ -32,10 +39,10 @@
 <!--            <input type="text" class="form-control"placeholder="Enter movie genre"-->
 <!--                   required>-->
 <!--          </div>-->
-          <div class="form-group">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+<!--          <div class="form-group">-->
+<!--            <button type="submit">Submit</button>-->
+<!--          </div>-->
+<!--        </form>-->
       </div>
       </div>
     </div>

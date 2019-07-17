@@ -1,9 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {MovieService} from '../../services/movie.service';
 import {TokenStorageService} from '../../authentication/token-storage.service';
-import {DataSource} from '@angular/cdk/table';
-import {Observable} from 'rxjs';
-import {Movie} from '../../model/movie.model';
+import {Router} from '@angular/router';
+import {Movie} from 'src/app/model/movie.model';
+import {promise} from 'selenium-webdriver';
+import map = promise.map;
 
 @Component({
     selector: 'app-search-result',
@@ -12,44 +13,32 @@ import {Movie} from '../../model/movie.model';
 })
 export class SearchResultComponent implements OnInit {
 
-
     isLoggedIn = false;
-    hasResult = false;
+    myMovie: any = [];
 
 
-    constructor(private movieService: MovieService, private token: TokenStorageService) {
+    constructor(private movieService: MovieService, private token: TokenStorageService, private router: Router) {
     }
 
     ngOnInit() {
         if (this.token.getToken()) {
             this.isLoggedIn = true;
         }
-        console.clear();
-        // this.movieService.myMovie = null;
         this.getDetail();
     }
 
     getDetail() {
-        if (this.movieService.isFound) {
-            this.hasResult = true;
-        } else {
-            this.hasResult = false;
-            console.log('FFFAAAALLLLLSSSEEEE');
-        }
+        this.movieService.returnFoundMovie().subscribe(data => {
+            if (data) {
+                this.myMovie = data;
+                // const n = this.myMovie.id;
+                console.log(this.myMovie);
+                // console.log(n);
+            } else {
+                this.router.navigate(['']);
+            }
+
+        });
+
     }
-
 }
-
-
-// export class MovieDataSource2 extends DataSource<any> {
-//     constructor(private movieService: MovieService) {
-//         super();
-//     }
-//
-//     connect(): Observable<Movie[]> {
-//         return this.movieService.getAllMovies();
-//     }
-//
-//     disconnect() {
-//     }
-// }

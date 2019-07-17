@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../authentication/token-storage.service';
-import {Movie} from '../../model/movie.model';
-import {HttpClient} from '@angular/common/http';
 import {MovieService} from '../../services/movie.service';
 import {Router} from '@angular/router';
-import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({
     selector: 'app-search-item',
@@ -14,14 +11,13 @@ import {LocalStorageService} from '../../services/local-storage.service';
 export class SearchItemComponent implements OnInit {
     isLoggedIn = false;
 
-    formItem = {
-        Title: '',
+    anyMovie = {
+        title: ''
     };
 
     constructor(private token: TokenStorageService,
                 private movieService: MovieService,
-                private router: Router,
-                private ls: LocalStorageService) {
+                private router: Router) {
     }
 
     ngOnInit() {
@@ -30,10 +26,8 @@ export class SearchItemComponent implements OnInit {
         }
     }
 
-    onSubmit() {
-        const title = this.formItem.Title;
-        console.log('title is: ' + title);
-        this.movieService.findMovieByTile(title).subscribe();
-        this.router.navigate(['searchSuccess']);
+    searchMovie(form) {
+        console.log(form.title);
+        this.movieService.findMovieByTile(form);
     }
 }

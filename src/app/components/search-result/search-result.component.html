@@ -7,9 +7,11 @@
             </div>
             <div class="rightpanel">
                 <div><h3>Search result:</h3></div>
-                <div *ngIf="hasResult">
-                    {{movieService.myMovie.id}}, {{movieService.myMovie.title}}
-                </div>
+                <div>ID: {{myMovie.id}}</div>
+                <div>Title: {{myMovie.title}}</div>
+                <!--                <div *ngFor="let mmm of myMovie">-->
+                <!--                    <p>Movie title: {{mmm?.title}}, id: {{mmm?.id}}</p>-->
+                <!--                </div>-->
             </div>
         </div>
     </div>
