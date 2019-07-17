@@ -32,8 +32,8 @@ export class SearchItemComponent implements OnInit {
 
     onSubmit() {
         const title = this.formItem.Title;
-        this.movieService.getFind(title);
-        this.ls.storeOnLocalStorage('Title', title);
+        console.log('title is: ' + title);
+        this.movieService.findMovieByTile(title).subscribe();
         this.router.navigate(['searchSuccess']);
     }
 }

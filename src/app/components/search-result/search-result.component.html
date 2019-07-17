@@ -1,42 +1,16 @@
 <div *ngIf="isLoggedIn">
 
-  <div class="container">
-    <div class="wrapper">
-      <div class="leftpanel">
-        <app-menu></app-menu>
-      </div>
-
-
-      <div class="rightpanel">
-        <div><h3>Search result:</h3></div>
-        <!--<div>-->
-        <mat-table [dataSource]="dataSource">
-          <ng-container matColumnDef="id">
-            <mat-header-cell *matHeaderCellDef ngClass="tablex">id</mat-header-cell>
-            <mat-cell *matCellDef="let movie"> {{movie.id}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="title">
-            <mat-header-cell *matHeaderCellDef ngClass="tablex">title</mat-header-cell>
-            <mat-cell *matCellDef="let movie"> {{movie.title}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="year">
-            <mat-header-cell *matHeaderCellDef ngClass="tablex">year</mat-header-cell>
-            <mat-cell *matCellDef="let movie"> {{movie.year}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="released">
-            <mat-header-cell *matHeaderCellDef ngClass="tablex">released</mat-header-cell>
-            <mat-cell *matCellDef="let movie"> {{movie.released}}</mat-cell>
-          </ng-container>
-          <ng-container matColumnDef="genre">
-            <mat-header-cell *matHeaderCellDef ngClass="tablex">genre</mat-header-cell>
-            <mat-cell *matCellDef="let movie"> {{movie.genre}}</mat-cell>
-          </ng-container>
-          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-        </mat-table>
-        <!--</div>-->
-
-      </div>
+    <div class="container">
+        <div class="wrapper">
+            <div class="leftpanel">
+                <app-menu></app-menu>
+            </div>
+            <div class="rightpanel">
+                <div><h3>Search result:</h3></div>
+                <div *ngIf="hasResult">
+                    {{movieService.myMovie.id}}, {{movieService.myMovie.title}}
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

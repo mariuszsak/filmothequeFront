@@ -42,7 +42,7 @@ export class MovieDataSource extends DataSource<any> {
     }
 
     connect(): Observable<Movie[]> {
-        return this.movieService.getMovie();
+        return this.movieService.getAllMovies();
     }
 
     disconnect() {

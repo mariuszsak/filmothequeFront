@@ -1,13 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {MovieDataSource} from '../table/table.component';
 import {MovieService} from '../../services/movie.service';
 import {TokenStorageService} from '../../authentication/token-storage.service';
 import {DataSource} from '@angular/cdk/table';
 import {Observable} from 'rxjs';
 import {Movie} from '../../model/movie.model';
-import {Router} from '@angular/router';
-import {LocalStorageService} from '../../services/local-storage.service';
-import {map} from 'rxjs/operators';
 
 @Component({
     selector: 'app-search-result',
@@ -16,31 +12,44 @@ import {map} from 'rxjs/operators';
 })
 export class SearchResultComponent implements OnInit {
 
-    dataSource = new MovieDataSource2(this.movieService, this.ls);
-    displayedColumns = ['id', 'title', 'year', 'released', 'genre'];
+
     isLoggedIn = false;
-    router: string;
+    hasResult = false;
 
 
-    constructor(private movieService: MovieService, private token: TokenStorageService, private ls: LocalStorageService) {
+    constructor(private movieService: MovieService, private token: TokenStorageService) {
     }
 
     ngOnInit() {
         if (this.token.getToken()) {
             this.isLoggedIn = true;
         }
+        console.clear();
+        // this.movieService.myMovie = null;
+        this.getDetail();
     }
+
+    getDetail() {
+        if (this.movieService.isFound) {
+            this.hasResult = true;
+        } else {
+            this.hasResult = false;
+            console.log('FFFAAAALLLLLSSSEEEE');
+        }
+    }
+
 }
 
-export class MovieDataSource2 extends DataSource<any> {
-    constructor(private movieService: MovieService, private ls: LocalStorageService) {
-        super();
-    }
 
-    connect(): Observable<Movie[]> {
-        return this.movieService.getMovie();
-    }
-
-    disconnect() {
-    }
-}
+// export class MovieDataSource2 extends DataSource<any> {
+//     constructor(private movieService: MovieService) {
+//         super();
+//     }
+//
+//     connect(): Observable<Movie[]> {
+//         return this.movieService.getAllMovies();
+//     }
+//
+//     disconnect() {
+//     }
+// }

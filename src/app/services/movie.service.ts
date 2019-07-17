@@ -9,21 +9,35 @@ import {map} from 'rxjs/operators';
 })
 export class MovieService {
 
-    private serviceUrl = 'http://localhost:8080/all';
+    myMovie: Movie = null;
+    isFound = false;
+
+    private allMoviesUrl = 'http://localhost:8080/all';
+    private findMovieUrl = 'http://localhost:8080/find/';
 
     constructor(private http: HttpClient) {
+        this.myMovie = new Movie();
+        this.isFound = false;
     }
 
-    myData: Movie[] = [];
 
-    getMovie(): Observable<Movie[]> {
-        return this.http.get<Movie[]>(this.serviceUrl);
+    getAllMovies(): Observable<Movie[]> {
+        return this.http.get<Movie[]>(this.allMoviesUrl);
     }
 
-    getFind(title: string) {
-        this.http.get<Movie[]>('http://localhost:8080/all').subscribe(data => {
-            this.myData = data.filter(d => d.title === title);
-            console.log(JSON.stringify(this.myData));
-        });
+    findMovieByTile(title: string) {
+        return this.http.get<Movie[]>(this.findMovieUrl + title)
+            .pipe(
+                map((data: any) => {
+                    if (data) {
+                        this.isFound = true;
+                        this.myMovie = data;
+
+                    } else {
+                        this.isFound = false;
+                    }
+                })
+            );
     }
+
 }

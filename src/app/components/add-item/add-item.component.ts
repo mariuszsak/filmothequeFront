@@ -42,6 +42,8 @@ export class AddItemComponent implements OnInit {
         );
     }
 
+    // TODO
+    // onsubmit post method should be moved into service
     onSubmit(form) {
         console.log('xxx');
         console.log(localStorage.getItem('testkey'));
