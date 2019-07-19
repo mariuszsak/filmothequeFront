@@ -9,13 +9,14 @@ import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-table',
-    templateUrl: './table.component.html',
-    styleUrls: ['./table.component.css']
+    templateUrl: './all-movies.component.html',
+    styleUrls: ['./all-movies.component.css']
 })
-export class TableComponent implements OnInit {
+export class AllMoviesComponent implements OnInit {
 
-    dataSource = new MovieDataSource(this.movieService);
-    displayedColumns = ['id', 'title', 'year', 'released', 'genre'];
+
+    movies: Movie[] = [];
+    columns: string[];
     isLoggedIn = false;
     router: string;
 
@@ -27,6 +28,19 @@ export class TableComponent implements OnInit {
         if (this.token.getToken()) {
             this.isLoggedIn = true;
         }
+        this.getAllMovies();
+        this.columns = this.movieService.getColumns();
+    }
+
+    getAllMovies() {
+        return this.movieService.getAllMoviesFromApi().subscribe(
+            res => {
+                this.movies = res;
+            },
+            err => {
+                alert('An error occured while movies fetching from database');
+            }
+        );
     }
 
     // logout() {
@@ -36,15 +50,3 @@ export class TableComponent implements OnInit {
     // }
 }
 
-export class MovieDataSource extends DataSource<any> {
-    constructor(private movieService: MovieService) {
-        super();
-    }
-
-    connect(): Observable<Movie[]> {
-        return this.movieService.getAllMovies();
-    }
-
-    disconnect() {
-    }
-}

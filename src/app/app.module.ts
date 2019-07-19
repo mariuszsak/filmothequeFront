@@ -3,8 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {TableComponent} from './components/table/table.component';
-import {MatTableModule} from '@angular/material';
+import {AllMoviesComponent} from './components/table/all-movies.component';
 import {MovieService} from './services/movie.service';
 import {LoginComponent} from './login/login.component';
 import {routing} from './app.routing';
@@ -19,12 +18,11 @@ import {SearchExtComponent} from './components/search-ext/search-ext.component';
 import {AddItemResultComponent} from './components/add-item-result/add-item-result.component';
 import {SearchResultComponent} from './components/search-result/search-result.component';
 import {LocalStorageService} from './services/local-storage.service';
-import {SESSION_STORAGE, WebStorageService} from 'ngx-webstorage-service';
 
 @NgModule({
     declarations: [
         AppComponent,
-        TableComponent,
+        AllMoviesComponent,
         LoginComponent,
         MenuComponent,
         AddItemComponent,
@@ -38,7 +36,6 @@ import {SESSION_STORAGE, WebStorageService} from 'ngx-webstorage-service';
     imports: [
         BrowserModule,
         HttpClientModule,
-        MatTableModule,
         FormsModule,
         routing
     ],
