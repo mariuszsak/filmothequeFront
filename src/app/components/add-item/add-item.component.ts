@@ -2,9 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {TokenStorageService} from '../../authentication/token-storage.service';
-import {FormControl} from '@angular/forms';
 import {Movie} from '../../model/movie.model';
-import {MovieService} from '../../services/movie.service';
 import {LocalStorageService} from '../../services/local-storage.service';
 
 @Component({

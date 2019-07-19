@@ -14,14 +14,12 @@ import {Router} from '@angular/router';
 })
 export class AllMoviesComponent implements OnInit {
 
-
     movies: Movie[] = [];
     columns: string[];
     isLoggedIn = false;
     router: string;
 
-    constructor(private movieService: MovieService, private token: TokenStorageService, private _router: Router) {
-        this.router = _router.url;
+    constructor(private movieService: MovieService, private token: TokenStorageService) {
     }
 
     ngOnInit() {
@@ -38,7 +36,7 @@ export class AllMoviesComponent implements OnInit {
                 this.movies = res;
             },
             err => {
-                alert('An error occured while movies fetching from database');
+                alert('An error occurred during fetching movies from database');
             }
         );
     }

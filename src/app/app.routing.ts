@@ -1,6 +1,6 @@
 import {LoginComponent} from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
-import {TableComponent} from './components/table/table.component';
+import {AllMoviesComponent} from './components/table/all-movies.component';
 import {AddItemComponent} from './components/add-item/add-item.component';
 import {GbyeComponent} from './components/gbye/gbye.component';
 import {SearchItemComponent} from './components/search-item/search-item.component';
@@ -10,7 +10,7 @@ import {SearchResultComponent} from './components/search-result/search-result.co
 
 
 const appRoutes: Routes = [
-    {path: 'all', component: TableComponent},
+    {path: 'all', component: AllMoviesComponent},
     {path: 'add', component: AddItemComponent},
     {path: 'addSuccess', component: AddItemResultComponent},
     {path: 'searchI', component: SearchItemComponent},

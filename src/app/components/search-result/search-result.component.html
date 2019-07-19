@@ -6,12 +6,23 @@
                 <app-menu></app-menu>
             </div>
             <div class="rightpanel">
-                <div><h3>Search result:</h3></div>
-                <div>ID: {{myMovie.id}}</div>
-                <div>Title: {{myMovie.title}}</div>
-                <!--                <div *ngFor="let mmm of myMovie">-->
-                <!--                    <p>Movie title: {{mmm?.title}}, id: {{mmm?.id}}</p>-->
-                <!--                </div>-->
+                <div><h3>Your movies:</h3><hr/></div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th *ngFor="let c of columns">{{c}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let m of movie">
+                        <td>{{m.id}}</td>
+                        <td>{{m.title}}</td>
+                        <td>{{m.year}}</td>
+                        <td>{{m.genre}}</td>
+<!--                        <td>{{movie.released}}</td>-->
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
