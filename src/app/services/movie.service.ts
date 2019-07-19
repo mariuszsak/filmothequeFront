@@ -11,8 +11,11 @@ export class MovieService {
 
     myMovie: Movie;
 
-    private allMoviesUrl = 'http://localhost:8080/all';
-    private findMovieUrl = 'http://localhost:8080/find/';
+    private BASE_URL = 'http://localhost:8080/';
+    private URL_ALL_MOVIES = `${this.BASE_URL}all`;
+    private URL_FIND_MOVIES = `${this.BASE_URL}find`;
+    private URL_DELETE_MOVIES = `${this.BASE_URL}delete/`;
+    private URL_SAVE_MOVIES = `${this.BASE_URL}save/`;
 
     constructor(private http: HttpClient, private router: Router) {
         this.myMovie = new Movie();
@@ -20,25 +23,23 @@ export class MovieService {
 
 
     getAllMovies() {
-        // return this.http.get<Movie[]>(this.allMoviesUrl);
-        return this.http.get(this.allMoviesUrl).pipe(
+        // return this.http.get<Movie[]>(this.URL_ALL_MOVIES);
+        return this.http.get(this.URL_ALL_MOVIES).pipe(
             map((data: any) => this.myMovie = data)
         );
     }
-
 
 
     returnFoundMovie() {
-        return this.http.get(this.findMovieUrl + this.myMovie.title).pipe(
+        return this.http.get(this.URL_FIND_MOVIES + this.myMovie.title).pipe(
             map((data: any) => this.myMovie = data)
         );
     }
-
 
     findMovieByTile(data) {
         this.myMovie = data;
         // this.myMovie.id = data.id;
-        this.http.get(this.findMovieUrl + data.title)
+        this.http.get(this.URL_FIND_MOVIES + data.title)
             .subscribe(
                 x => console.log(JSON.stringify(x)
                 )
