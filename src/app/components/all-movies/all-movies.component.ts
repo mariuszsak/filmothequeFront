@@ -46,5 +46,19 @@ export class AllMoviesComponent implements OnInit {
     //     window.sessionStorage.clear();
     //     window.location.replace('login');
     // }
+    deleteMovie() {
+        alert('deletion');
+    }
+
+    updateMovie(m: Movie) {
+        this.movieService.saveMovie(m).subscribe(
+            res => {
+            },
+            err => {
+                alert('An error occurred while save movie');
+            }
+        );
+
+    }
 }
 

@@ -13,7 +13,7 @@ export class MovieService {
     private URL_ALL_MOVIES = `${this.BASE_URL}/all`;
     private URL_FIND_MOVIE = `${this.BASE_URL}/find/`;
     private URL_DELETE_MOVIES = `${this.BASE_URL}/delete/`;
-    private URL_SAVE_MOVIE = `${this.BASE_URL}/save/`;
+    private URL_SAVE_MOVIE = `${this.BASE_URL}/save`;
 
     constructor(private http: HttpClient) {
     }
@@ -38,7 +38,6 @@ export class MovieService {
     }
 
     saveMovie(form) {
-        this.http.post<Movie[]>(this.URL_SAVE_MOVIE, form).subscribe();
-
+        return this.http.post<Movie[]>(this.URL_SAVE_MOVIE, form);
     }
 }
