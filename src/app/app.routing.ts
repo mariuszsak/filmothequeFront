@@ -1,6 +1,6 @@
 import {LoginComponent} from './login/login.component';
 import {RouterModule, Routes} from '@angular/router';
-import {AllMoviesComponent} from './components/table/all-movies.component';
+import {AllMoviesComponent} from './components/all-movies/all-movies.component';
 import {AddItemComponent} from './components/add-item/add-item.component';
 import {GbyeComponent} from './components/gbye/gbye.component';
 import {SearchItemComponent} from './components/search-item/search-item.component';

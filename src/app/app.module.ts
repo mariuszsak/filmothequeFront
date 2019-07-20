@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {AllMoviesComponent} from './components/table/all-movies.component';
+import {AllMoviesComponent} from './components/all-movies/all-movies.component';
 import {MovieService} from './services/movie.service';
 import {LoginComponent} from './login/login.component';
 import {routing} from './app.routing';
