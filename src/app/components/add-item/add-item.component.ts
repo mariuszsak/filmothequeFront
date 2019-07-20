@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {TokenStorageService} from '../../authentication/token-storage.service';
 import {Movie} from '../../model/movie.model';
 import {LocalStorageService} from '../../services/local-storage.service';
+import {MovieService} from '../../services/movie.service';
 
 @Component({
     selector: 'app-add-item',
@@ -12,40 +13,32 @@ import {LocalStorageService} from '../../services/local-storage.service';
 })
 export class AddItemComponent implements OnInit {
 
-    public url = 'http://localhost:8080/add';
     isLoggedIn = false;
 
     formItem = {
         Title: '',
-        Year: 2000,
+        Year: '',
         Release: '',
         Genre: ''
     };
 
-    constructor(private http: HttpClient, private token: TokenStorageService, private router: Router, private ls: LocalStorageService) {
+    constructor(private http: HttpClient,
+                private token: TokenStorageService,
+                private router: Router,
+                private movieService: MovieService) {
 
     }
 
     ngOnInit() {
         if (this.token.getToken()) {
             this.isLoggedIn = true;
-            this.goAdd();
         }
     }
 
-    goAdd() {
-        return this.http.get(this.url, {responseType: 'text'}).subscribe(data => {
-                console.log(data);
-            }
-        );
-    }
-
     // TODO
-    // onsubmit post method should be moved into service
     onSubmit(form) {
-        console.log('xxx');
-        console.log(localStorage.getItem('testkey'));
-        this.http.post<Movie[]>('http://localhost:8080/save', form).subscribe();
+        console.log(form);
+        this.movieService.saveMovie(form);
         this.router.navigate(['addSuccess']);
     }
 }
