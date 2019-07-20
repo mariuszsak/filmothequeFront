@@ -30,7 +30,7 @@ export class MovieService {
 
     findMovieByTile(data) {
         this.t = data.title;
-        return this.http.get<Movie[]>(this.URL_FIND_MOVIE + data.title);
+        // return this.http.get<Movie[]>(this.URL_FIND_MOVIE + data.title);
     }
 
     getFoundedMovie(): Observable<Movie[]> {

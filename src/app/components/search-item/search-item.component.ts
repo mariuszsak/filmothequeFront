@@ -28,19 +28,22 @@ export class SearchItemComponent implements OnInit {
 
     searchMovie(form) {
         console.log('Title from form: ' + form.title);
-        this.movieService.findMovieByTile(form).subscribe(
-            res => {
-                if (!isEmpty()) {
-                    this.movie = res;
-                    this.router.navigate(['searchSuccess']);
-                } else {
-                    alert('Movie: ' + form.title + ' not found in your database!');
-                }
-            },
-            err => {
-                alert('An error occurred during searching movie');
-            }
-        );
+        this.movieService.findMovieByTile(form);
+        this.router.navigate(['searchSuccess']);
+        // .subscribe(
+        // res => {
+        //     if (isEmpty()) {
+        //         console.log(res);
+        //         this.movie = res;
+        //         this.router.navigate(['searchSuccess']);
+        //     } else {
+        //         alert('Movie: ' + form.title + ' not found in your database!');
+        //     }
+        // },
+        // err => {
+        //     alert('An error occurred during searching movie');
+        // }
+    }
 
 
         // this.myMovie = data;
@@ -53,5 +56,5 @@ export class SearchItemComponent implements OnInit {
         //     this.router.navigate(['searchSuccess']);
         //
         // }
-    }
+    // }
 }

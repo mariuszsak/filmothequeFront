@@ -32,10 +32,11 @@ export class SearchResultComponent implements OnInit {
     getDetail() {
         return this.movieService.getFoundedMovie().subscribe(
             res => {
-                if (!isEmpty()) {
+                if (res.length > 0 ) {
                     this.movie = res;
                 } else {
                     alert('Movie not found in your database!');
+                    this.router.navigate(['']);
                 }
             },
             err => {
