@@ -11,15 +11,15 @@
                     <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.value)">
                         <div class="form-group">
                             <label>Title:</label>
-                            <input type="text" class="form-control" placeholder="Enter movie title" for="Title"
-                                   [(ngModel)]="formItem.Title"
-                                   name="Title"
-                                   #Title="ngModel"
+                            <input type="text" class="form-control" placeholder="Enter movie title" for="title"
+                                   [(ngModel)]="formItem.title"
+                                   name="title"
+                                   #title="ngModel"
                                    required
-                                   [ngClass]="{'is-invalid': f.submitted && Title.invalid}"
+                                   [ngClass]="{'is-invalid': f.submitted && title.invalid}"
                             />
-                            <div *ngIf="f.submitted && Title.invalid" class="alert alert-danger">
-                                <div *ngIf="Title.errors?.required">
+                            <div *ngIf="f.submitted && title.invalid" class="alert alert-danger">
+                                <div *ngIf="title.errors?.required">
                                     Title is required.
                                 </div>
                             </div>
@@ -27,16 +27,16 @@
                         <div class="form-group">
                             <label>Year:</label>
                             <input type="text" class="form-control" placeholder="Enter movie year" for="Year"
-                                   [(ngModel)]="formItem.Year"
-                                   name="Year"
-                                   #Year="ngModel"
+                                   [(ngModel)]="formItem.year"
+                                   name="year"
+                                   #year="ngModel"
                                    min="1970"
                                    max="2022"
                                    required
-                                   [ngClass]="{'is-invalid': f.submitted && Year.invalid}"
+                                   [ngClass]="{'is-invalid': f.submitted && year.invalid}"
                             />
-                            <div *ngIf="f.submitted && Year.invalid" class="alert alert-danger">
-                                <div *ngIf="Year.errors?.required">
+                            <div *ngIf="f.submitted && year.invalid" class="alert alert-danger">
+                                <div *ngIf="year.errors?.required">
                                     Year is required.
                                 </div>
                             </div>
@@ -45,15 +45,15 @@
                         <div>
                             <label>Released:</label>
                             <input type="text" class="form-control" placeholder="Enter movie release date"
-                                   for="Released"
-                                   [(ngModel)]="formItem.Release"
-                                   name="Released"
-                                   #Released="ngModel"
+                                   for="released"
+                                   [(ngModel)]="formItem.release"
+                                   name="released"
+                                   #released="ngModel"
                                    required
-                                   [ngClass]="{'is-invalid': f.submitted && Released.invalid}"
+                                   [ngClass]="{'is-invalid': f.submitted && released.invalid}"
                             />
-                            <div *ngIf="f.submitted && Released.invalid" class="alert alert-danger">
-                                <div *ngIf="Released.errors?.required">
+                            <div *ngIf="f.submitted && released.invalid" class="alert alert-danger">
+                                <div *ngIf="released.errors?.required">
                                     Released is required.
                                 </div>
                             </div>
@@ -61,14 +61,14 @@
                         <div class="form-group">
                             <label>Genre:</label>
                             <input type="text" class="form-control" placeholder="Enter movie genre" for="Genre"
-                                   [(ngModel)]="formItem.Genre"
-                                   name="Genre"
-                                   #Genre="ngModel"
+                                   [(ngModel)]="formItem.genre"
+                                   name="genre"
+                                   #genre="ngModel"
                                    required
-                                   [ngClass]="{'is-invalid': f.submitted && Genre.invalid}"
+                                   [ngClass]="{'is-invalid': f.submitted && genre.invalid}"
                             />
-                            <div *ngIf="f.submitted && Genre.invalid" class="alert alert-danger">
-                                <div *ngIf="Genre.errors?.required">
+                            <div *ngIf="f.submitted && genre.invalid" class="alert alert-danger">
+                                <div *ngIf="genre.errors?.required">
                                     Genre is required.
                                 </div>
                             </div>

@@ -16,10 +16,10 @@ export class AddItemComponent implements OnInit {
     isLoggedIn = false;
 
     formItem = {
-        Title: '',
-        Year: '',
-        Release: '',
-        Genre: ''
+        title: '',
+        year: '',
+        release: '',
+        genre: ''
     };
 
     constructor(private http: HttpClient,
@@ -37,8 +37,15 @@ export class AddItemComponent implements OnInit {
 
     // TODO
     onSubmit(form) {
+        console.log('form here: ');
         console.log(form);
-        this.movieService.saveMovie(form);
+        this.movieService.saveMovie(form).subscribe(
+            res => {
+            },
+            err => {
+                alert('An error occurred while save movie');
+            }
+        );
         this.router.navigate(['addSuccess']);
     }
 }
