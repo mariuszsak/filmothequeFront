@@ -12,6 +12,11 @@ export class MenuComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getCurrentUser();
+    }
+
+    getCurrentUser(): string {
+        return this.token.getUsername();
     }
 
     logout() {
