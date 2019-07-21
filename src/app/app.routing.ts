@@ -7,6 +7,7 @@ import {SearchItemComponent} from './components/search-item/search-item.componen
 import {SearchExtComponent} from './components/search-ext/search-ext.component';
 import {AddItemResultComponent} from './components/add-item-result/add-item-result.component';
 import {SearchResultComponent} from './components/search-result/search-result.component';
+import {SettingsComponent} from './components/settings/settings.component';
 
 
 const appRoutes: Routes = [
@@ -17,6 +18,7 @@ const appRoutes: Routes = [
     {path: 'searchSuccess', component: SearchResultComponent},
     {path: 'searchE', component: SearchExtComponent},
     {path: 'gbye', component: GbyeComponent},
+    {path: 'settings', component: SettingsComponent},
     {path: 'login', component: LoginComponent},
     {path: '**', redirectTo: 'login'}
 ];
