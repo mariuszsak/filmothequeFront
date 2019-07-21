@@ -25,6 +25,7 @@
     "adm-zip": "^0.4.13",
     "bootstrap": "^4.3.1",
     "core-js": "^2.6.9",
+    "font-awesome": "^4.7.0",
     "jquery": "^3.4.1",
     "ngx-webstorage-service": "^4.0.1",
     "npm": "^6.9.0",

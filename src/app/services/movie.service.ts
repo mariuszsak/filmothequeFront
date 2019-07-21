@@ -12,25 +12,22 @@ export class MovieService {
     private BASE_URL = 'http://localhost:8080';
     private URL_ALL_MOVIES = `${this.BASE_URL}/all`;
     private URL_FIND_MOVIE = `${this.BASE_URL}/find/`;
-    private URL_DELETE_MOVIES = `${this.BASE_URL}/delete/`;
+    private URL_DELETE_MOVIE = `${this.BASE_URL}/delete`;
     private URL_SAVE_MOVIE = `${this.BASE_URL}/save`;
 
     constructor(private http: HttpClient) {
     }
 
-    // GET COLUMNS
     getColumns() {
-        return ['id', 'title', 'year', 'genre', 'released'];
+        return ['id', 'title', 'year', 'genre', 'released', ''];
     }
 
-    // GET ALL MOVIES FROM API
     getAllMoviesFromApi(): Observable<Movie[]> {
         return this.http.get<Movie[]>(this.URL_ALL_MOVIES);
     }
 
     findMovieByTile(data) {
         this.t = data.title;
-        // return this.http.get<Movie[]>(this.URL_FIND_MOVIE + data.title);
     }
 
     getFoundedMovie(): Observable<Movie[]> {
@@ -39,5 +36,9 @@ export class MovieService {
 
     saveMovie(form) {
         return this.http.post<Movie[]>(this.URL_SAVE_MOVIE, form);
+    }
+
+    deleteMovie(m: Movie) {
+        return this.http.post<Movie[]>(this.URL_DELETE_MOVIE, m);
     }
 }

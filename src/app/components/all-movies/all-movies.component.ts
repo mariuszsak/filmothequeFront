@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {DataSource} from '@angular/cdk/collections';
 import {MovieService} from '../../services/movie.service';
-import {Observable} from 'rxjs';
 import {Movie} from '../../model/movie.model';
 import {TokenStorageService} from '../../authentication/token-storage.service';
-import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 
 @Component({
@@ -17,9 +14,10 @@ export class AllMoviesComponent implements OnInit {
     movies: Movie[] = [];
     columns: string[];
     isLoggedIn = false;
-    router: string;
 
-    constructor(private movieService: MovieService, private token: TokenStorageService) {
+    constructor(private movieService: MovieService,
+                private token: TokenStorageService,
+                private router: Router) {
     }
 
     ngOnInit() {
@@ -46,8 +44,17 @@ export class AllMoviesComponent implements OnInit {
     //     window.sessionStorage.clear();
     //     window.location.replace('login');
     // }
-    deleteMovie() {
-        alert('deletion');
+    deleteMovie(m: Movie) {
+        if (confirm('Are you sure you want to delete move from database?\nYou CANNOT undo this!')) {
+            this.movieService.deleteMovie(m).subscribe(
+                res => {
+                    location.reload();
+                },
+                err => {
+                    alert('An error occurred while delete movie');
+                }
+            );
+        }
     }
 
     updateMovie(m: Movie) {

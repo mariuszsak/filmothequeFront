@@ -16,14 +16,16 @@
                     <tbody>
                     <tr *ngFor="let m of movies">
                         <td>{{m.id}}</td>
-                        <td><input  type="text"  [(ngModel)]="m.title" (change)="updateMovie(m)" ></td>
+                        <td><input type="text" [(ngModel)]="m.title" (change)="updateMovie(m)"></td>
                         <td>{{m.year}}</td>
                         <td>{{m.genre}}</td>
                         <td>{{m.released}}</td>
-
-                        <button type="button" (click)="deleteMovie()" class="btn btn-danger">
-                        DEL
-                    </button>
+                        <td>
+                            <i class="fa fa-trash red" aria-hidden="true" (click)="deleteMovie(m)" ></i>
+                        </td>
+                        <!--                        <button type="button" (click)="deleteMovie(m)" class="btn btn-danger">-->
+                        <!--                        DEL-->
+                        <!--                    </button>-->
                     </tr>
                     </tbody>
                 </table>
