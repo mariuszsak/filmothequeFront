@@ -18,6 +18,7 @@ import {SearchExtComponent} from './components/search-ext/search-ext.component';
 import {AddItemResultComponent} from './components/add-item-result/add-item-result.component';
 import {SearchResultComponent} from './components/search-result/search-result.component';
 import {LocalStorageService} from './services/local-storage.service';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import {LocalStorageService} from './services/local-storage.service';
         SearchItemComponent,
         SearchExtComponent,
         AddItemResultComponent,
-        SearchResultComponent
+        SearchResultComponent,
+        SettingsComponent
     ],
     imports: [
         BrowserModule,
