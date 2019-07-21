@@ -18,6 +18,9 @@
         <td><a [routerLink]="['/searchE']">Search movie OMDB</a></td>
     </tr>
 
+    <tr *ngIf="isLoggedIn">
+        <td><a [routerLink]="['/settings']">Settings</a></td>
+    </tr>
     <tr>
         <td><a [routerLink]="['/logout']" (click)="logout()">Logout</a></td>
     </tr>

@@ -8,10 +8,15 @@ import {TokenStorageService} from '../../authentication/token-storage.service';
 })
 export class MenuComponent implements OnInit {
 
+    isLoggedIn = false;
+
     constructor(private token: TokenStorageService) {
     }
 
     ngOnInit() {
+        if (this.token.getToken()) {
+            this.isLoggedIn = true;
+        }
         this.getCurrentUser();
     }
 
