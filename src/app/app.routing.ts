@@ -8,6 +8,7 @@ import {SearchExtComponent} from './components/search-ext/search-ext.component';
 import {AddItemResultComponent} from './components/add-item-result/add-item-result.component';
 import {SearchResultComponent} from './components/search-result/search-result.component';
 import {SettingsComponent} from './components/settings/settings.component';
+import {RegisterComponent} from './register/register.component';
 
 
 const appRoutes: Routes = [
@@ -20,6 +21,7 @@ const appRoutes: Routes = [
     {path: 'gbye', component: GbyeComponent},
     {path: 'settings', component: SettingsComponent},
     {path: 'login', component: LoginComponent},
+    {path: 'signup', component: RegisterComponent},
     {path: '**', redirectTo: 'login'}
 ];
 export const routing = RouterModule.forRoot(appRoutes);
