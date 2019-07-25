@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../authentication/auth.service';
 import {AuthRegisterInfo} from '../authentication/register-info';
+import {Settings} from '../model/settings.model';
 
 @Component({
     selector: 'app-register',
@@ -14,6 +15,10 @@ export class RegisterComponent implements OnInit {
     isSignedUp = false;
     isSignUpFailed = false;
     errorMessage = '';
+    userSettings: Settings = {
+        apiKey: 'none'
+    };
+
 
     constructor(private authService: AuthService) {
     }
@@ -26,7 +31,9 @@ export class RegisterComponent implements OnInit {
 
         this.signupInfo = new AuthRegisterInfo(
             this.form.username,
-            this.form.password);
+            this.form.password,
+            this.userSettings
+        );
 
         this.authService.signUp(this.signupInfo).subscribe(
             data => {
