@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
     isSignUpFailed = false;
     errorMessage = '';
     userSettings: Settings = {
-        apiKey: 'none'
+        apiKey: 'nothing'
     };
 
 
