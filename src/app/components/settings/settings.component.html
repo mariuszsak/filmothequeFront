@@ -11,10 +11,10 @@
           <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.value)" novalidate>
             <div class="form-group">
               <label>OMDB apikey:</label>
-              <input type="text" class="form-control" placeholder="Enter OMDB apikey" for="apikey"
-                     [(ngModel)]="item.apikey"
+              <input type="text" class="form-control" placeholder="Enter OMDB apikey" for="apiKey"
+                     [(ngModel)]="item.apiKey"
                      name="apikey"
-                     #apikey="ngModel"
+                     #apiKey="ngModel"
               />
             </div>
             <div class="form-group">
