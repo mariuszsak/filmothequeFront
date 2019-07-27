@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../authentication/token-storage.service';
 import {UsernameInfo} from '../../authentication/username-info';
 import {SettingsService} from '../../services/settings.service';
+import {AuthService} from '../../authentication/auth.service';
 
 @Component({
     selector: 'app-settings',
@@ -20,7 +21,15 @@ export class SettingsComponent implements OnInit {
         username: ''
     };
 
-    constructor(private token: TokenStorageService, private settingsService: SettingsService) {
+    username: string;
+
+    message = {
+        username: '',
+        'userSettings': this.item
+    };
+
+    constructor(private token: TokenStorageService,
+                private settingsService: SettingsService) {
     }
 
     ngOnInit() {
@@ -31,10 +40,9 @@ export class SettingsComponent implements OnInit {
     }
 
     onSubmit(form) {
-        console.log('Setting form here: ');
-        console.log(form);
-        this.settingsService.setApiKey(form).subscribe();
-        return false;
+        this.message.username = this.token.getUsername();
+        this.message.userSettings = form;
+        this.settingsService.setApiKey(this.message).subscribe();
     }
 
     getAK() {
