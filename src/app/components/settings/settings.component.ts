@@ -2,8 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from '../../authentication/token-storage.service';
 import {UsernameInfo} from '../../authentication/username-info';
 import {SettingsService} from '../../services/settings.service';
-import {AuthService} from '../../authentication/auth.service';
-import {OmdbmovieService} from '../../services/omdbmovie.service';
 
 @Component({
     selector: 'app-settings',

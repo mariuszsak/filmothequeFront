@@ -3,7 +3,6 @@ import {MovieService} from '../../services/movie.service';
 import {TokenStorageService} from '../../authentication/token-storage.service';
 import {Router} from '@angular/router';
 import {Movie} from 'src/app/model/movie.model';
-import {isEmpty} from 'rxjs/operators';
 
 @Component({
     selector: 'app-search-result',

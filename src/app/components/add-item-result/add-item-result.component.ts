@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {MovieService} from '../../services/movie.service';
-import {Movie} from '../../model/movie.model';
 
 @Component({
     selector: 'app-add-item-result',
