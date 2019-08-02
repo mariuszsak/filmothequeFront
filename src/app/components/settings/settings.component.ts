@@ -3,6 +3,7 @@ import {TokenStorageService} from '../../authentication/token-storage.service';
 import {UsernameInfo} from '../../authentication/username-info';
 import {SettingsService} from '../../services/settings.service';
 import {AuthService} from '../../authentication/auth.service';
+import {OmdbmovieService} from '../../services/omdbmovie.service';
 
 @Component({
     selector: 'app-settings',
@@ -12,6 +13,7 @@ import {AuthService} from '../../authentication/auth.service';
 export class SettingsComponent implements OnInit {
 
     isLoggedIn = false;
+    isEnabled = false;
 
     item = {
         apiKey: ''
@@ -54,5 +56,10 @@ export class SettingsComponent implements OnInit {
                 console.log(this.item.apiKey);
             }
         );
+    }
+
+    doTestApikey(value: any) {
+        this.settingsService.testApiKey(value).subscribe();
+
     }
 }
