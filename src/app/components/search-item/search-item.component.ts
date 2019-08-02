@@ -30,31 +30,5 @@ export class SearchItemComponent implements OnInit {
         console.log('Title from form: ' + form.title);
         this.movieService.findMovieByTile(form);
         this.router.navigate(['searchSuccess']);
-        // .subscribe(
-        // res => {
-        //     if (isEmpty()) {
-        //         console.log(res);
-        //         this.movie = res;
-        //         this.router.navigate(['searchSuccess']);
-        //     } else {
-        //         alert('Movie: ' + form.title + ' not found in your database!');
-        //     }
-        // },
-        // err => {
-        //     alert('An error occurred during searching movie');
-        // }
     }
-
-
-        // this.myMovie = data;
-        //     // this.myMovie.id = data.id;
-        //     this.http.get(this.URL_FIND_MOVIES + data.title)
-        //         .subscribe(
-        //             x => console.log(JSON.stringify(x)
-        //             )
-        //         );
-        //     this.router.navigate(['searchSuccess']);
-        //
-        // }
-    // }
 }
