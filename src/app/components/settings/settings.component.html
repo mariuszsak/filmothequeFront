@@ -1,30 +1,51 @@
 <div *ngIf="isLoggedIn">
 
-  <div class="container">
-    <div class="wrapper">
-      <div class="leftpanel">
-        <app-menu></app-menu>
-      </div>
-      <div class="rightpanel">
-        <div><h3>Settings:</h3></div>
-        <div>
-          <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.value)" novalidate>
-            <div class="form-group">
-              <label>OMDB apikey:</label>
-              <input type="text" class="form-control" placeholder="Enter OMDB apikey" for="apiKey"
-                     [(ngModel)]="item.apiKey"
-                     name="apiKey"
-                     #apiKey="ngModel"
-              />
+    <div class="container">
+        <div class="wrapper">
+            <div class="leftpanel">
+                <app-menu></app-menu>
             </div>
-            <div class="form-group">
-              <button class="btn btn-primary float-right" type="submit">Save settings</button>
+            <div class="rightpanel">
+                <div><h3>Settings:</h3></div>
+                <div>
+                    <div>
+                        <form #f="ngForm" (ngSubmit)="f.form.valid && onSubmit(f.value)" novalidate>
+                            <div class="form-group">
+                                <label>OMDB apikey:</label>
+                                <input type="text"
+                                       (ngModelChange)= "isEnabled = true"
+                                       class="form-control"
+                                       placeholder="Enter OMDB apikey" for="apiKey"
+                                       [(ngModel)]="item.apiKey"
+                                       name="apiKey"
+                                       #apiKey="ngModel"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-primary float-right" type="submit">Save settings</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div>
+                    <p>&nbsp;</p>
+                </div>
+
+                <div *ngIf="isEnabled">
+                    <div>
+                        <form #f2="ngForm" (ngSubmit)="doTestApikey(f.value)" novalidate>
+                            <div class="form-group">
+                                <button class="btn btn-info btn-lg btn-block" type="submit">Test your OMDB apikey
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </div>
+<!--</div>-->
 <!--<p><a href="/logout" (click)="logout()">logout</a></p>-->
 <!--Go from add item to <a href="/login">Login page</a>-->
